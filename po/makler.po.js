@@ -33,26 +33,26 @@ var theMaklerPage = function () {
     this.typeSectionPath = by.css("#category_2>option[value='819']"); //vinzare
     this.subtypeSectionPath = by.css("#category_3>option[value='107']");  //vinzare apartamente
     this.pricePath = by.css("#price");
-    this.currencyPath = by.css("#currency_id>option[value='5']"); // value="5"
-    this.authorPath = by.css("#anfrom>option[value='person']"); // value="person"
+    this.currencyPath = by.css("#currency_id>option[value='5']"); //euro
+    this.authorPath = by.css("#anfrom>option[value='person']"); //Persoană particulară
 
-    this.roomsPath = by.css("#field_106>option[value='149']"); // value="149"
-    this.roomsTypePath = by.css("#field_355>option[value='2618']"); // value="2618"
+    this.roomsPath = by.css("#field_106>option[value='149']"); //Apartament cu 1 odaie
+    this.roomsTypePath = by.css("#field_355>option[value='2618']"); //separate
     this.totalAreaPath = by.css("#field_172");
     this.leavingAreaPath = by.css("#field_173");
     this.kitchenAreaPath = by.css("#field_174");
-    this.houseTypePath = by.css("#field_168>option[value='560']"); // value="560"
-    this.buildingTypePath = by.css("#field_163 option[value='526']"); // value="526"
-    this.buildingPlanPath = by.css("#field_171>option[value='571']"); // value="571"
+    this.houseTypePath = by.css("#field_168>option[value='560']"); //Piatra
+    this.buildingTypePath = by.css("#field_163 option[value='526']"); //Dat în exploatare
+    this.buildingPlanPath = by.css("#field_171>option[value='571']"); //Individuala
     this.flowPath = by.css("#field_169");
     this.flowsPath = by.css("#field_170");
-    this.bathRoomPath = by.css("#field_177>option[value='584']"); // value="584"
-    this.balconyPath = by.css("#field_175>option[value='573']"); // value="573"
+    this.bathRoomPath = by.css("#field_177>option[value='584']"); //1 baie
+    this.balconyPath = by.css("#field_175>option[value='573']"); //1 balcon
     this.roomHeightPath = by.css("#field_178");
-    this.statePath = by.css("#field_176>option[value='582']"); //value="582"
-    this.parkingPath = by.css("#field_356>option[value='2620']"); //value="2620"
+    this.statePath = by.css("#field_176>option[value='582']"); //euroreparatie
+    this.parkingPath = by.css("#field_356>option[value='2620']"); //deschis
     this.additionalPath = by.xpath(".//a[@class='ftitle' and contains(.,'Suplimentar')]");
-    this.sectorPath = by.css("#field_288>option[value='1023']"); //value="1023"
+    this.sectorPath = by.css("#field_288>option[value='1023']"); //centru
     this.streetNamePath = by.css("#field_298");
     this.streetNumberPath = by.css("#field_312");
     this.adTitlePath = by.css("#editorName");
@@ -118,26 +118,26 @@ var theMaklerPage = function () {
         page.main.clickElement(that.subtypeSectionPath);
 
         page.main.setInputTextElement(that.pricePath ,'1');
-        page.main.clickElement(that.currencyPath); //euro
+        page.main.clickElement(that.currencyPath);
 
-        page.main.clickElement(that.authorPath); //Persoană particulară
+        page.main.clickElement(that.authorPath);
 
-        page.main.clickElement(that.roomsPath); //Apartament cu 1 odaie
-        page.main.clickElement(that.roomsTypePath); //separate
+        page.main.clickElement(that.roomsPath);
+        page.main.clickElement(that.roomsTypePath);
 
         page.main.setInputTextElement(that.flowPath, '6');
         page.main.setInputTextElement(that.flowsPath, '6');
-        page.main.clickElement(that.houseTypePath); //Piatra
-        page.main.clickElement(that.buildingTypePath); //Dat în exploatare
-        page.main.clickElement(that.buildingPlanPath);  //Individuala
+        page.main.clickElement(that.houseTypePath);
+        page.main.clickElement(that.buildingTypePath);
+        page.main.clickElement(that.buildingPlanPath);
         page.main.setInputTextElement(that.totalAreaPath, '43');
         page.main.setInputTextElement(that.leavingAreaPath, '38');
         page.main.setInputTextElement(that.kitchenAreaPath, '9');
         page.main.setInputTextElement(that.roomHeightPath, '2500');
-        page.main.clickElement(that.statePath); //euroreparatie
-        page.main.clickElement(that.balconyPath); //1 balcon
-        page.main.clickElement(that.bathRoomPath); //1 baie
-        page.main.clickElement(that.parkingPath); //deschis
+        page.main.clickElement(that.statePath);
+        page.main.clickElement(that.balconyPath);
+        page.main.clickElement(that.bathRoomPath);
+        page.main.clickElement(that.parkingPath);
 
         page.main.clickElement(that.additionalPath);
 
@@ -149,7 +149,7 @@ var theMaklerPage = function () {
         for (var i = 0; i < values2.length; i++) {
             page.main.clickElement(by.css("[value='"+values2[i]+"']"));
         }
-        page.main.clickElement(that.sectorPath); //centru
+        page.main.clickElement(that.sectorPath);
         page.main.setInputTextElement(that.streetNamePath, that.streetNameText);
         page.main.setInputTextElement(that.streetNumberPath, that.streetNumberText);
 
@@ -157,7 +157,7 @@ var theMaklerPage = function () {
         page.main.setInputTextElement(that.adDescriptionPath, that.adDescriptionText);
 
         page.main.addPhoto(that.inputPhotoPath);
-        //browser.debugger();
+
         page.main.scrollElemFinderIntoView(that.continuePath); //scroll
         page.main.clickElement(that.inputPhonePath);
         page.main.clickElement(that.continuePath);
