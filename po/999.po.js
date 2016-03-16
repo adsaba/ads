@@ -160,7 +160,7 @@ var the999Page = function () {
         page.main.setInputTextElement(that.adTitlePath, that.adTitleText);
         page.main.setInputTextElement(that.adDescriptionPath, that.adDescriptionText);
         page.main.clickElement(that.agreePath);
-        page.main.addPhoto(that.inputPhotoPath);
+        page.main.addPhoto(that.inputPhotoPath, 'ads', 10);
         //browser.debugger();
         page.main.clickElement(that.continuePath);
     };

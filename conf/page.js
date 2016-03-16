@@ -18,6 +18,10 @@ var page = function (po) {
         var AdsMakler = require('../po/makler.po.js');
         this.adsMakler = new AdsMakler();
     }
+    if (po == 'adsAvito'){
+        var AdsAvito = require('../po/avito.po.js');
+        this.adsAvito = new AdsAvito();
+    }
 };
 
 module.exports = page;

@@ -156,7 +156,7 @@ var theMaklerPage = function () {
         page.main.setInputTextElement(that.adTitlePath, that.adTitleText);
         page.main.setInputTextElement(that.adDescriptionPath, that.adDescriptionText);
 
-        page.main.addPhoto(that.inputPhotoPath);
+        page.main.addPhoto(that.inputPhotoPath, 'ads', 10);
 
         page.main.scrollElemFinderIntoView(that.continuePath); //scroll
         page.main.clickElement(that.inputPhonePath);
