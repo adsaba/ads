@@ -12,6 +12,8 @@ describe('Add ads', function () {
             page1.adsAvito.addAd();
             done();
         });
+
+        //http://irr.ru
     });
 
 });

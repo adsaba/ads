@@ -89,10 +89,12 @@ var theAvitoPage = function () {
      */
     this.addAd = function () {
         that.setPageUri("/additem");
+        page.main.wait(10);
         page.main.clickElement(that.fmServicesPath);
         page.main.clickElement(that.smOfferPath);
         page.main.clickElement(that.tmOthersPath);
         page.main.clickElement(that.metroPath);
+        page.main.wait(10);
 
         page.main.setInputTextElement(that.pricePath ,'1500');
         page.main.setInputTextElement(that.adTitlePath, that.adTitleText);
@@ -101,7 +103,7 @@ var theAvitoPage = function () {
 
         page.main.clickElement(that.packagesFreePath);
         page.main.clickElement(that.continuePath);
-        page.main.wait(5);
+        page.main.wait(10);
     };
 
 };
