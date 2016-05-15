@@ -77,7 +77,7 @@ var the999Page = function () {
      * @name setPageUri
      * @methodOf the999Page
      * @description setPageUri
-     * @param {string} uri
+     * @param {string} uri uri_path
      */
     this.setPageUri = function (uri) {
         browser.driver.get(that.pageUrl + uri);
@@ -88,7 +88,7 @@ var the999Page = function () {
      * @name login
      * @methodOf the999Page
      * @description login
-     *
+     * @param {string} user user_name
      */
     this.login = function (user) {
         page.main.clickElement(that.loginLinkPath);
@@ -149,7 +149,7 @@ var the999Page = function () {
         page.main.clickElement(that.balconyPath);
         page.main.clickElement(that.bathRoomPath);
 
-        var values = [193 , 214, 160 , 226, 179 , 217, 197, 174, 206, 173, 159, 223, 225, 175, 233, 224, 196, 188, 172];
+        var values = [193 , 214, 160 , 226, 179 , 217, 197, 174, 206, 173, 159, 223, 225, 233, 224, 188, 172];
         for (var i = 0; i < values.length; i++) {
             page.main.clickElement(by.css("[name='"+values[i]+"']"));
         }

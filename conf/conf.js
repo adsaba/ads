@@ -32,7 +32,7 @@ exports.config = {
     ],
 
     specs: [
-        '../specs/adsT.js'
+        '../specs/ads.js'
     ],
 
     //suites: {

@@ -33,33 +33,33 @@ var theMaklerPage = function () {
     this.typeSectionPath = by.css("#category_2>option[value='819']"); //vinzare
     this.subtypeSectionPath = by.css("#category_3>option[value='107']");  //vinzare apartamente
     this.pricePath = by.css("#price");
-    this.currencyPath = by.css("#currency_id>option[value='5']"); //euro
-    this.authorPath = by.css("#anfrom>option[value='person']"); //Persoană particulară
+    this.currencyPath = by.css("#currency_id>[for='currency_id-5']"); //euro
+    this.authorPath = by.css("#anfrom>[for='anfrom-person']"); //Persoană particulară
 
-    this.roomsPath = by.css("#field_106>option[value='149']"); //Apartament cu 1 odaie
-    this.roomsTypePath = by.css("#field_355>option[value='2618']"); //separate
-    this.totalAreaPath = by.css("#field_172");
-    this.leavingAreaPath = by.css("#field_173");
-    this.kitchenAreaPath = by.css("#field_174");
-    this.houseTypePath = by.css("#field_168>option[value='560']"); //Piatra
-    this.buildingTypePath = by.css("#field_163 option[value='526']"); //Dat în exploatare
-    this.buildingPlanPath = by.css("#field_171>option[value='571']"); //Individuala
-    this.flowPath = by.css("#field_169");
-    this.flowsPath = by.css("#field_170");
-    this.bathRoomPath = by.css("#field_177>option[value='584']"); //1 baie
-    this.balconyPath = by.css("#field_175>option[value='573']"); //1 balcon
-    this.roomHeightPath = by.css("#field_178");
-    this.statePath = by.css("#field_176>option[value='582']"); //euroreparatie
-    this.parkingPath = by.css("#field_356>option[value='2620']"); //deschis
+    this.roomsPath = by.css("#106>option[value='149']"); //Apartament cu 1 odaie
+    this.roomsTypePath = by.css("#355>option[value='2618']"); //separate
+    this.totalAreaPath = by.css("#172");
+    this.leavingAreaPath = by.css("#173");
+    this.kitchenAreaPath = by.css("#174");
+    this.houseTypePath = by.css("#168>option[value='560']"); //Piatra
+    this.buildingTypePath = by.css("#163 option[value='526']"); //Dat în exploatare
+    this.buildingPlanPath = by.css("#171>option[value='571']"); //Individuala
+    this.flowPath = by.css("#169");
+    this.flowsPath = by.css("#170");
+    this.bathRoomPath = by.css("#177>option[value='584']"); //1 baie
+    this.balconyPath = by.css("#175>option[value='573']"); //1 balcon
+    this.roomHeightPath = by.css("#178");
+    this.statePath = by.css("#176>option[value='582']"); //euroreparatie
+    this.parkingPath = by.css("#356>option[value='2620']"); //deschis
     this.additionalPath = by.xpath(".//a[@class='ftitle' and contains(.,'Suplimentar')]");
-    this.sectorPath = by.css("#field_288>option[value='1023']"); //centru
-    this.streetNamePath = by.css("#field_298");
-    this.streetNumberPath = by.css("#field_312");
+    this.sectorPath = by.css("#288>option[value='1023']"); //centru
+    this.streetNamePath = by.css("#298");
+    this.streetNumberPath = by.css("#312");
     this.adTitlePath = by.css("#editorName");
     this.adDescriptionPath = by.css("#editorText");
     this.addPhotoPath = by.css("#qq-upload-button");
     this.inputPhotoPath = by.css("input[type='file']");
-    this.inputPhonePath = by.css(".phone-list input']");
+    this.inputPhonePath = by.css(".phone-list label");
     this.continuePath = by.css("#addWebControls .saveBtn");
 
 
@@ -83,7 +83,7 @@ var theMaklerPage = function () {
      * @name setPageUri
      * @methodOf theMaklerPage
      * @description setPageUri
-     * @param {string} uri
+     * @param {string} uri uri_path
      */
     this.setPageUri = function (uri) {
         browser.driver.get(that.pageUrl + uri);
@@ -94,7 +94,7 @@ var theMaklerPage = function () {
      * @name login
      * @methodOf theMaklerPage
      * @description login
-     *
+     * @param {string} user user_name
      */
     this.login = function (user) {
         page.main.clickElement(that.loginLinkPath);
@@ -141,13 +141,9 @@ var theMaklerPage = function () {
 
         page.main.clickElement(that.additionalPath);
 
-        var values1 = ['field_363' , 'field_364' , 'field_179' , 'field_181' , 'field_182' , 'field_366' , 'field_183' , 'field_184' , 'field_185'];
-        for (var i = 0; i < values1.length; i++) {
-            page.main.clickElement(by.css("[for='"+values1[i]+"']"));
-        }
-        var values2 = [2626 , 2627 , 2628 , 2631 , 2632 , 2630 , 2629];
-        for (var i = 0; i < values2.length; i++) {
-            page.main.clickElement(by.css("[value='"+values2[i]+"']"));
+        var values = ['363', '364', '179', '181', '182', '366', '183', '184', '185', '358-2626', '358-2627', '358-2628', '358-2631', '358-2632', '358-2630', '358-2629'];
+        for (var i = 0; i < values.length; i++) {
+            page.main.clickElement(by.css("[for='field_"+values[i]+"']"));
         }
         page.main.clickElement(that.sectorPath);
         page.main.setInputTextElement(that.streetNamePath, that.streetNameText);
@@ -158,9 +154,10 @@ var theMaklerPage = function () {
 
         page.main.addPhoto(that.inputPhotoPath, 'ads', 10);
 
-        page.main.scrollElemFinderIntoView(that.continuePath); //scroll
+        //page.main.scrollElemFinderIntoView(that.continuePath); //scroll
         page.main.clickElement(that.inputPhonePath);
         page.main.clickElement(that.continuePath);
+        page.main.wait(5)
     };
 
 };
