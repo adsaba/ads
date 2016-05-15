@@ -36,25 +36,25 @@ var theMaklerPage = function () {
     this.currencyPath = by.css("#currency_id>[for='currency_id-5']"); //euro
     this.authorPath = by.css("#anfrom>[for='anfrom-person']"); //Persoană particulară
 
-    this.roomsPath = by.css("#106>option[value='149']"); //Apartament cu 1 odaie
-    this.roomsTypePath = by.css("#355>option[value='2618']"); //separate
-    this.totalAreaPath = by.css("#172");
-    this.leavingAreaPath = by.css("#173");
-    this.kitchenAreaPath = by.css("#174");
-    this.houseTypePath = by.css("#168>option[value='560']"); //Piatra
-    this.buildingTypePath = by.css("#163 option[value='526']"); //Dat în exploatare
-    this.buildingPlanPath = by.css("#171>option[value='571']"); //Individuala
-    this.flowPath = by.css("#169");
-    this.flowsPath = by.css("#170");
-    this.bathRoomPath = by.css("#177>option[value='584']"); //1 baie
-    this.balconyPath = by.css("#175>option[value='573']"); //1 balcon
-    this.roomHeightPath = by.css("#178");
-    this.statePath = by.css("#176>option[value='582']"); //euroreparatie
-    this.parkingPath = by.css("#356>option[value='2620']"); //deschis
+    this.roomsPath = by.css("#field_106>option[value='149']"); //Apartament cu 1 odaie
+    this.roomsTypePath = by.css("#field_355>option[value='2618']"); //separate
+    this.totalAreaPath = by.css("#field_172");
+    this.leavingAreaPath = by.css("#field_173");
+    this.kitchenAreaPath = by.css("#field_174");
+    this.houseTypePath = by.css("#field_168>option[value='560']"); //Piatra
+    this.buildingTypePath = by.css("#field_163 option[value='526']"); //Dat în exploatare
+    this.buildingPlanPath = by.css("#field_171>option[value='571']"); //Individuala
+    this.flowPath = by.css("#field_169");
+    this.flowsPath = by.css("#field_170");
+    this.bathRoomPath = by.css("#field_177>option[value='584']"); //1 baie
+    this.balconyPath = by.css("#field_175>option[value='573']"); //1 balcon
+    this.roomHeightPath = by.css("#field_178");
+    this.statePath = by.css("#field_176>option[value='582']"); //euroreparatie
+    this.parkingPath = by.css("#field_356>option[value='2620']"); //deschis
     this.additionalPath = by.xpath(".//a[@class='ftitle' and contains(.,'Suplimentar')]");
-    this.sectorPath = by.css("#288>option[value='1023']"); //centru
-    this.streetNamePath = by.css("#298");
-    this.streetNumberPath = by.css("#312");
+    this.sectorPath = by.css("#field_288>option[value='1023']"); //centru
+    this.streetNamePath = by.css("#field_298");
+    this.streetNumberPath = by.css("#field_312");
     this.adTitlePath = by.css("#editorName");
     this.adDescriptionPath = by.css("#editorText");
     this.addPhotoPath = by.css("#qq-upload-button");
