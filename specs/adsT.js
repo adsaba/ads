@@ -1,19 +1,16 @@
-var Page = require('../conf/page.js'),
-    page1 = new Page('adsAvito');
+var Page = require('../po/_page.js');
+
 
 describe('Add ads', function () {
     'use strict';
-
+    var page = new Page();
     describe("Add ads on avito", function () {
         it("theAvitoPage", function (done) {
-            page1.adsAvito.open();
-            page1.adsAvito.login(page1.main.env().adsAvito.users.usr1, page1.main.env().adsAvito.users.psw1);
-            //page1.adsAvito.login(page1.main.env().adsAvito.users.usr2, page1.main.env().adsAvito.users.psw1);
-            page1.adsAvito.addAd();
+            page.adsAvito.open();
+            page.adsAvito.login(page.main.env().adsAvito.users.usr1, page.main.env().adsAvito.users.psw1); //usr2
+            page.adsAvito.addAd();
             done();
         });
-
-        //http://irr.ru
     });
 
 });

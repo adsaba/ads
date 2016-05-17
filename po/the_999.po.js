@@ -8,8 +8,8 @@ var the999Page = function () {
     'use strict';
     var that = this;
     var path = require('path');
-    var Page = require('../conf/page.js'),
-        page = new Page();
+    var Page = require('./_page.js'),
+        page = new Page('main');
 
     /******************************************************
      * Page Object Texts
