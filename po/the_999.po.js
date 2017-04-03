@@ -46,6 +46,7 @@ var the999Page = function () {
     this.balconyPath = by.css("#control_250>option[value='920']"); //1 balcon
     this.bathRoomPath = by.css("#control_252>option[value='900']"); //1 baie
     this.parkingPath = by.css("#control_251");
+    this.locationPath = by.css("#control_8>option[value='13859']"); //Chisinau
     this.sectorPath = by.css("#control_9>option[value='15664']"); //centru
     this.streetNamePath = by.css("#control_10");
     this.streetNumberPath = by.css("#control_11");
@@ -54,7 +55,7 @@ var the999Page = function () {
     this.addPhotoPath = by.css("#fileupload-button");
     this.inputPhotoPath = by.css("input[type='file']");
     this.agreePath = by.css("#agree");
-    this.continuePath = by.css(".board__content__further__body>span");
+    this.continuePath = by.css(".board__content__group__body>.grid_9>button");
 
 
     /******************************************************
@@ -153,6 +154,7 @@ var the999Page = function () {
         for (var i = 0; i < values.length; i++) {
             page.main.clickElement(by.css("[name='"+values[i]+"']"));
         }
+        page.main.clickElement(that.locationPath);
         page.main.clickElement(that.sectorPath);
         page.main.setInputTextElement(that.streetNamePath, that.streetNameText);
         page.main.setInputTextElement(that.streetNumberPath, that.streetNumberText);
