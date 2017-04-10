@@ -31,6 +31,7 @@ var the999Page = function () {
     this.flashPath = by.css("[type='application/x-shockwave-flash']");
     // Apartments
     this.pricePath = by.css("#control_2");
+    this.negotiablePath = by.css(".js-negotiable-switcher");
     this.authorPath = by.css("#control_795>option[value='18895']"); //Persoană particulară
     this.housingFundPath = by.css("#control_852>option[value='19109']"); //De mina a doua
     this.roomsPath = by.css("#control_241>option[value='893']"); //Apartament cu 1 odaie
@@ -46,6 +47,7 @@ var the999Page = function () {
     this.balconyPath = by.css("#control_250>option[value='920']"); //1 balcon
     this.bathRoomPath = by.css("#control_252>option[value='900']"); //1 baie
     this.parkingPath = by.css("#control_251");
+    this.regionPath = by.css("#control_7>option[value='12900']"); //Mun.Chisinau
     this.locationPath = by.css("#control_8>option[value='13859']"); //Chisinau
     this.sectorPath = by.css("#control_9>option[value='15664']"); //centru
     this.streetNamePath = by.css("#control_10");
@@ -134,6 +136,7 @@ var the999Page = function () {
         that.setPageUri("/add?category=real-estate&subcategory=real-estate%2Fapartments-and-rooms&offer_type=776");
         //that.closeFlash();
         page.main.setInputTextElement(that.pricePath ,'1');
+        page.main.clickElement(that.negotiablePath);
         page.main.clickElement(that.authorPath);
         page.main.clickElement(that.housingFundPath);
 
@@ -150,15 +153,16 @@ var the999Page = function () {
         page.main.clickElement(that.balconyPath);
         page.main.clickElement(that.bathRoomPath);
 
-        var values = [193 , 214, 160 , 226, 179 , 217, 197, 174, 206, 173, 159, 223, 225, 233, 224, 188, 172];
+        var values = [196 , 214, 160 , 226, 179 , 217, 197, 174, 206, 173, 159, 223, 225, 233, 224, 188, 172];
         for (var i = 0; i < values.length; i++) {
             page.main.clickElement(by.css("[name='"+values[i]+"']"));
         }
+        page.main.clickElement(that.regionPath);
         page.main.clickElement(that.locationPath);
         page.main.clickElement(that.sectorPath);
         page.main.setInputTextElement(that.streetNamePath, that.streetNameText);
         page.main.setInputTextElement(that.streetNumberPath, that.streetNumberText);
-        //page.main.scrollElemFinderIntoView(that.adTitlePath); //scroll
+        page.main.scrollElemFinderIntoView(that.adTitlePath); //scroll
         page.main.setInputTextElement(that.adTitlePath, that.adTitleText);
         page.main.setInputTextElement(that.adDescriptionPath, that.adDescriptionText);
         page.main.clickElement(that.agreePath);

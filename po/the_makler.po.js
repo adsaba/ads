@@ -32,6 +32,8 @@ var theMaklerPage = function () {
     this.themeSectionPath = by.css("#category_1>option[value='12']"); //imobil
     this.typeSectionPath = by.css("#category_2>option[value='819']"); //vinzare
     this.subtypeSectionPath = by.css("#category_3>option[value='107']");  //vinzare apartamente
+    this.cityPath = by.css("[name='city']>option[value='28']"); //Chisinau
+    this.districtPath = by.css("[name='district']>option[value='1023']"); //Centru
     this.pricePath = by.css("#price");
     this.currencyPath = by.css("#currency_id>[for='currency_id-5']"); //euro
     this.authorPath = by.css("#anfrom>[for='anfrom-person']"); //Persoană particulară
@@ -49,10 +51,11 @@ var theMaklerPage = function () {
     this.bathRoomPath = by.css("#field_177>option[value='584']"); //1 baie
     this.balconyPath = by.css("#field_175>option[value='573']"); //1 balcon
     this.roomHeightPath = by.css("#field_178");
+    this.placementPath = by.css("#field_496>option[value='3228']"); //Amplasarea Colt
     this.statePath = by.css("#field_176>option[value='582']"); //euroreparatie
     this.parkingPath = by.css("#field_356>option[value='2620']"); //deschis
     this.additionalPath = by.xpath(".//a[@class='ftitle' and contains(.,'Suplimentar')]");
-    this.sectorPath = by.css("#field_288>option[value='1023']"); //centru
+    this.placePath = by.xpath(".//a[@class='ftitle' and contains(.,'Amplasare')]");
     this.streetNamePath = by.css("#field_298");
     this.streetNumberPath = by.css("#field_312");
     this.adTitlePath = by.css("#editorName");
@@ -116,6 +119,8 @@ var theMaklerPage = function () {
         page.main.clickElement(that.themeSectionPath);
         page.main.clickElement(that.typeSectionPath);
         page.main.clickElement(that.subtypeSectionPath);
+        page.main.clickElement(that.cityPath);
+        page.main.clickElement(that.districtPath);
 
         page.main.setInputTextElement(that.pricePath ,'1');
         page.main.clickElement(that.currencyPath);
@@ -134,18 +139,20 @@ var theMaklerPage = function () {
         page.main.setInputTextElement(that.leavingAreaPath, '38');
         page.main.setInputTextElement(that.kitchenAreaPath, '9');
         page.main.setInputTextElement(that.roomHeightPath, '2500');
+        page.main.clickElement(that.placementPath);
         page.main.clickElement(that.statePath);
         page.main.clickElement(that.balconyPath);
         page.main.clickElement(that.bathRoomPath);
         page.main.clickElement(that.parkingPath);
 
-        page.main.clickElement(that.additionalPath);
+        //page.main.clickElement(that.additionalPath);
+        page.main.scrollElemFinderIntoView(that.additionalPath); //scroll
 
         var values = ['363', '364', '179', '181', '182', '366', '183', '184', '185', '358-2626', '358-2627', '358-2628', '358-2631', '358-2632', '358-2630', '358-2629'];
         for (var i = 0; i < values.length; i++) {
             page.main.clickElement(by.css("[for='field_"+values[i]+"']"));
         }
-        page.main.clickElement(that.sectorPath);
+
         page.main.setInputTextElement(that.streetNamePath, that.streetNameText);
         page.main.setInputTextElement(that.streetNumberPath, that.streetNumberText);
 
